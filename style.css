@@ -1,0 +1,9 @@
+body {
+    background-color:blue;
+}
+
+.titulo_principal {
+    background-color:rgba(133, 190, 223, 0.925);
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

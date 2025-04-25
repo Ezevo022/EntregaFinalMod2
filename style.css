@@ -37,8 +37,8 @@ main {
     margin-bottom: 20px;
     text-align: right;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius: 8px;
+    background-color:chartreuse;
   }
 
   .botones {
@@ -50,7 +50,6 @@ main {
   button {
     height: 60px;
     font-size: 18px;
-    border: none;
     border-radius: 8px;
     background-color: #e0e0e0;
   }

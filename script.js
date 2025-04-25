@@ -1,39 +1,31 @@
-const form = document.getElementById("formulario")
-const lista = document.querySelector("#listaTareas")
+const pantalla = document.querySelector(".pantalla");
+const botones = document.querySelectorAll(".botones button");
 
-const eliminarTarea = (id) => {
-    const node = document.getElementById(id)
-    const checkbox = node.querySelector("input[type='checkbox']");
-    const nodeParent = node.parentNode;
+// Evento click en cualquier boton
+botones.forEach(boton => {
+    boton.addEventListener("click", () => {
+        const valor = boton.textContent;
 
-    if (!checkbox.checked) {
-        alert("No se puede eliminar una tarea NO completada.");
-        return;
-    }
+        // Se vacia la pantalla en caso de estar en algun error
+        if (pantalla.value === "Error" || pantalla.value === "Infinity") {
+            pantalla.value = "";
+        }
 
-    nodeParent.remove()
-}
-
-let contador = 1;
-
-form.addEventListener("submit", (event) => {
-    event.preventDefault()
-
-    const texto = form.tarea.value
-
-    const nuevoElemento = document.createElement("li")
-    nuevoElemento.innerHTML = `
-    <div id="${contador}">
-    <input type='checkbox'>
-        <span>
-            ${texto}
-        </span>
-    <button class='botonEliminar' onclick='eliminarTarea("${contador}")'>X</button>
-    </div>
-    `
-
-    lista.appendChild(nuevoElemento)
-    form.tarea.value = ""
-
-    contador++;
-})
+        // Se elige que hacer depende el boton seleccionado
+        if (valor === "=" && !(pantalla.value === "")) {
+            try {
+                pantalla.value = eval(pantalla.value);
+            } catch {
+                pantalla.value = "Error";
+            }
+        } else if (valor === "=") {
+            return;
+        } else if (valor === "C") {
+            pantalla.value = "";
+        } else if (valor === "←") {
+            pantalla.value = pantalla.value.slice(0, -1);
+        } else {
+            pantalla.value += valor;
+        }
+    });
+});

@@ -5,14 +5,14 @@ const lista = document.querySelector("#listaTareas")
 const eliminarTarea = (id) => {
     const node = document.getElementById(id)
     const checkbox = node.querySelector("input[type='checkbox']");
-    const nodeParent = node.parentNode;
+    // const nodeParent = node.parentNode;
 
     if (!checkbox.checked) {
         alert("No se puede eliminar una tarea NO completada.");
         return;
     }
 
-    nodeParent.remove()
+    node.remove()
 }
 
 let contador = 1;
@@ -24,14 +24,14 @@ form.addEventListener("submit", (event) => {
     const texto = form.tarea.value
 
     const nuevoElemento = document.createElement("li")
+    nuevoElemento.id = contador
+    
     nuevoElemento.innerHTML = `
-    <div id="${contador}">
     <input type='checkbox'>
         <span>
             ${texto}
         </span>
-    <button class='botonEliminar' onclick='eliminarTarea("${contador}")'>X</button>
-    </div>
+    <button onclick='eliminarTarea("${contador}")'>X</button>
     `
 
     lista.appendChild(nuevoElemento)

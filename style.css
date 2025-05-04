@@ -1,3 +1,5 @@
+/* Se agregan estilos a HTML, BODY y MAIN para que funciones footer en caso
+de no llenar la pantalla con los elementos actuales */
 html, body {
   height: 100%;
   margin: 0;
@@ -120,7 +122,7 @@ main {
     transition: transform 0.3s;
   }
 
-  /* Efecto para ampliar apenas la imagen */
+  /* Efecto para ampliar apenas pasas por la imagen */
   .galeria img:hover {
     transform: scale(1.05);
   }

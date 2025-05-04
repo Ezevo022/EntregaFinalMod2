@@ -5,7 +5,6 @@ const lista = document.querySelector("#listaTareas")
 const eliminarTarea = (id) => {
     const node = document.getElementById(id)
     const checkbox = node.querySelector("input[type='checkbox']");
-    // const nodeParent = node.parentNode;
 
     if (!checkbox.checked) {
         alert("No se puede eliminar una tarea NO completada.");
@@ -15,6 +14,7 @@ const eliminarTarea = (id) => {
     node.remove()
 }
 
+// Contador para que el boton eliminar tarea sepa que elemento eliminar
 let contador = 1;
 
 //Evento de agregar una tarea

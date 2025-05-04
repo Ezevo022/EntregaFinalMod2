@@ -4,7 +4,7 @@ const cerrarBtn = document.getElementById('cerrar');
 
 // Al hacer click en cada imagen se captura su ubicacion y texto
 // alternativo para ampliarlo luego.
-// Como genera un array se captura al seleccionar cualquier elemento.
+// Como genera un array se captura con un listener evento click por cada elemento.
 document.querySelectorAll('.galeria img').forEach(img => {
     img.addEventListener('click', () => {
         modal.style.display = 'flex';
